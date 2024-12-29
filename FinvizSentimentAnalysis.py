@@ -13,7 +13,7 @@ ticker = 'AMD'
 news_tables = {}
 
 url = f'{finviz_url}{ticker}'
-req = Request(url=url, headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"})
+req = Request(url=url, headers = {"User-Agent": "Insert User-Agent"})
 response = urlopen(req)
 html = BeautifulSoup(response, 'html')
 
@@ -58,8 +58,6 @@ start_date = pd.to_datetime(df['date'].iloc[-1])
 end_date = pd.to_datetime(df['date'].iloc[0])
 stockdata = stock.history(start=start_date, end=end_date)
 price = stockdata['Close']
-
-df.to_csv('cool.csv')
 
 # Convert new_df index to datetime for proper alignment
 new_df.index = pd.to_datetime(new_df.index)
